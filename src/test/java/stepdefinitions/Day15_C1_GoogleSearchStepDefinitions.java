@@ -30,7 +30,7 @@ public class Day15_C1_GoogleSearchStepDefinitions {
     }
     @Then("kullanici application i kapatir")
     public void kullanici_application_i_kapatir() {
-        Driver.closeDriver();
+ //       Driver.closeDriver();
     }
     @Given("kullanici caydanlik arar")
     public void kullanici_caydanlik_arar() {
@@ -60,6 +60,17 @@ public class Day15_C1_GoogleSearchStepDefinitions {
     public void kullanici_sonuclarda_volkswagen_oldugunu_verify_eder() {
         String title=Driver.getDriver().getTitle();
         Assert.assertTrue(title.contains("volkswagen"));
+    }
+    @Given("kullanici {string} arar")
+    public void kullanici_arar(String string) {
+
+    }
+    @Then("kullanici sonuclarda {string}  oldugunu verify eder")
+    public void kullanici_sonuclarda_oldugunu_verify_eder(String string) {
+
+    }
+    @Then("kullanici application kapatir")
+    public void kullanici_application_kapatir() {
 
     }
 }

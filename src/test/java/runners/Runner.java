@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 
 //calistirmak istediğim feuture file belirtiyorum
 @CucumberOptions(
-        features = "./src/test/resources/firstfeaturefile.feature",  //ZORUNLU =  Feature dosyanin pathini girmemiz lazım
+        features = "src/test/resources/Sprint_13.05/Eegles/Day16_C5_US100450_kullanici_manager_kullanici_bilgilerini_kullanarak_login_yapmali.feature",  //ZORUNLU =  Feature dosyanin pathini girmemiz lazım
         glue = "stepdefinitions",  // ZORUNLU  = Stepdefinition adresi (path) i
-        tags = "@google_search",//hangi feature file kosmali onu belirtiyoruz. Eger Tags kullanmazsak Runner tüm featureları run eder
+        tags = "@manager_login_test",//hangi feature file kosmali onu belirtiyoruz. Eger Tags kullanmazsak Runner tüm featureları run eder
         dryRun = false //opsiyoneldir
 )
 
