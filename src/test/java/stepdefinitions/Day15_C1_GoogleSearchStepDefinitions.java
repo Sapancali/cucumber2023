@@ -17,10 +17,10 @@ public class Day15_C1_GoogleSearchStepDefinitions {
     @Given("kullanici google sayfasindadir")
     public void kullanici_google_sayfasindadir() {
         Driver.getDriver().get(ConfigReader.getProperty("google_url"));
+        googlePage.cerezOnayi.click();
     }
     @Given("kullanici iPhone'u arar")
     public void kullanici_i_phone_u_arar() {
-        googlePage.cerezOnayi.click();
         googlePage.googleSearchBox.sendKeys("iPhone"+ Keys.ENTER);
     }
     @Then("kullanici sonuclarda iPhone oldugunu verify eder")
@@ -30,11 +30,10 @@ public class Day15_C1_GoogleSearchStepDefinitions {
     }
     @Then("kullanici application i kapatir")
     public void kullanici_application_i_kapatir() {
- //       Driver.closeDriver();
+        Driver.closeDriver();
     }
     @Given("kullanici caydanlik arar")
     public void kullanici_caydanlik_arar() {
-        googlePage.cerezOnayi.click();
         googlePage.googleSearchBox.sendKeys("caydanlik"+Keys.ENTER);
     }
     @Then("kullanici sonuclarda caydanlik oldugunu verify eder")
@@ -44,7 +43,6 @@ public class Day15_C1_GoogleSearchStepDefinitions {
     }
     @Given("kullanici cicek arar")
     public void kullanici_cicek_arar() {
-        googlePage.cerezOnayi.click();
         googlePage.googleSearchBox.sendKeys("cicek"+Keys.ENTER);
     }
     @Then("kullanici sonuclarda cicek oldugunu verify eder")
@@ -53,7 +51,6 @@ public class Day15_C1_GoogleSearchStepDefinitions {
     }
     @Given("kullanici volkswagen arar")
     public void kullanici_volkswagen_arar() {
-        googlePage.cerezOnayi.click();
         googlePage.googleSearchBox.sendKeys("volkswagen"+Keys.ENTER);
     }
     @Then("kullanici sonuclarda volkswagen oldugunu verify eder")
@@ -61,16 +58,23 @@ public class Day15_C1_GoogleSearchStepDefinitions {
         String title=Driver.getDriver().getTitle();
         Assert.assertTrue(title.contains("volkswagen"));
     }
+
+    // paramatirized kullanıldı
     @Given("kullanici {string} arar")
     public void kullanici_arar(String string) {
+        googlePage.googleSearchBox.sendKeys(string+Keys.ENTER);
 
     }
+
     @Then("kullanici sonuclarda {string}  oldugunu verify eder")
     public void kullanici_sonuclarda_oldugunu_verify_eder(String string) {
-
+       String title= Driver.getDriver().getTitle();
+       Assert.assertTrue(title.contains(string));
     }
+
     @Then("kullanici application kapatir")
     public void kullanici_application_kapatir() {
-
+       Driver.closeDriver();
     }
+
 }

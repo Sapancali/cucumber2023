@@ -12,5 +12,19 @@ Feature: Login_manager_kullanici_bilgileriyle_deneme
     Examples: Test Data
       | kullaniciadi | kullanisifre | default_page |
       | manager      | Manager1!    | Hotel Management |
-      | manager5     | Manager5!    | default_page |
-      | manager12    | Manager12!   | default_page |
+      | manager7     | Manager7!    | Hotel Management |
+      | manager12    | Manager12!   | Hotel Management |
+
+    @admin_login_test
+    Scenario Outline: Login_admin_kullanici_bilgileriyle_deneme
+
+      Given kullanici application sayfasindadir
+      And kullanici admin id "<adminadi>" girer
+      And kullanici admin sifre "<adminsifre>" girer
+      Then kullanici login butonnuna click eder
+#      Then kullanici default page in displayed oldugunu verify eder
+      Then kullanici application kapatir
+
+      Examples: Admin Test Data
+        |adminadi  |adminsifre |default_page|
+        |admin22   |admin123! |Hotel Management|
